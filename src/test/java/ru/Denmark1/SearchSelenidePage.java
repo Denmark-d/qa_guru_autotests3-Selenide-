@@ -1,6 +1,7 @@
 package ru.Denmark1;
 
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -20,10 +21,15 @@ public class SearchSelenidePage {
         //перешли в раздел в Wiki
         //$("#wiki-repo-tab-count").click();
         $("[data-content=Wiki]").click();
-        $("[data-filterable-for=wiki-pages-filter]").$(byText("SoftAssertions")).shouldBe(visible).click();
-        //$(".js-wiki-sidebar-toggle-display").shouldHave(text("SoftAssertions"));
-        //$$("ul.[data-filterable-for=wiki-pages-filter]").findBy(exactText("SoftAssertions")).click();
-        //$("#wiki-pages-box").shouldHave(text("Soft assertions")).shouldBe(visible);
+        //кликнули на show more
+        $ (".js-wiki-more-pages-link").scrollTo().click();
 
+        $("[data-filterable-for='wiki-pages-filter']").shouldHave(text("SoftAssertions"));
+        //коикнули на SoftAssertions
+        $("[data-filterable-for='wiki-pages-filter']").click();
+
+        //Проверяем
+        $(".markdown-body").shouldBe(visible);
+        $(".markdown-body").shouldHave(text("Using JUnit5 extend test class:")).shouldBe(visible);
     }
 }
