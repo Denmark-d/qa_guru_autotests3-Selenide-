@@ -28,7 +28,7 @@ public class SearchSelenidePage {
         //коикнули на SoftAssertions
         $("[data-filterable-for='wiki-pages-filter']").click();
 
-        //Проверяем
+        //Проверяем, что внутри есть пример кода для JUnit
         $(".markdown-body").shouldBe(visible);
         $(".markdown-body").shouldHave(text("Using JUnit5 extend test class:")).shouldBe(visible);
     }
