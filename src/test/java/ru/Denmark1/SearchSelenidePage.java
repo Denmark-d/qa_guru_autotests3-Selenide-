@@ -30,6 +30,7 @@ public class SearchSelenidePage {
 
         //Проверяем, что внутри есть пример кода для JUnit
         $(".markdown-body").shouldBe(visible);
-        $(".markdown-body").shouldHave(text("Using JUnit5 extend test class:")).shouldBe(visible);
+        //$(".markdown-body").shouldHave(text("Using JUnit5 extend test class:")).shouldBe(visible);
+
     }
 }
